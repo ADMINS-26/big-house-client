@@ -11,6 +11,7 @@ export async function submitContact(
 ): Promise<FormState> {
   const name = formData.get("name")?.toString().trim();
   const phone = formData.get("phone")?.toString().trim();
+  const email = formData.get("email")?.toString().trim();
   const message = formData.get("message")?.toString().trim();
 
   if (!name || !phone) {
@@ -18,7 +19,7 @@ export async function submitContact(
   }
 
   // Здесь можно добавить отправку на email / webhook / CRM
-  console.log("Новая заявка:", { name, phone, message });
+  console.log("Новая заявка:", { name, phone, email, message });
 
   return { success: true };
 }
