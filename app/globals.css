@@ -1,15 +1,25 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-nunito);
+  --font-display: var(--font-vela);
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+.site-container {
+  width: 100%;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(24px, 5vw, 100px);
+  padding-right: clamp(24px, 5vw, 100px);
+}
+
 body {
   background: #ffffff;
-  color: #171717;
-  font-family: var(--font-inter), system-ui, sans-serif;
+  color: #0F1F17;
+  font-family: var(--font-nunito), system-ui, sans-serif;
 }
