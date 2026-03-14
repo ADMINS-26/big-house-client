@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useState } from "react";
@@ -6,24 +7,39 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-14">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-2 shrink-0">
-          <svg className="w-7 h-7" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 14L14 3L26 14V26H18V18H10V26H2V14Z" stroke="black" strokeWidth="1.5" fill="none" />
-          </svg>
-          <span className="text-sm font-semibold tracking-wide text-black">Большой дом</span>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white">
+      <div
+        className="site-container flex items-center justify-between"
+        style={{ height: "clamp(56px, 8.073vw, 155px)" }}
+      >
+        {/* Logo + name */}
+        <a href="#" className="flex items-center gap-3 shrink-0">
+          <img
+            src="/images/logo.svg"
+            alt="Большой дом"
+            style={{ height: "clamp(28px, 2.865vw, 55px)" }}
+          />
+          <span
+            className="font-display font-[400] text-[#0F1F17]"
+            style={{ fontSize: "clamp(14px, 1.302vw, 25px)" }}
+          >
+            Большой дом
+          </span>
         </a>
 
         {/* Desktop right */}
         <div className="hidden md:flex items-center gap-6">
-          <a href="mailto:info@bighouse.ru" className="text-sm text-gray-500 hover:text-black transition-colors">
+          <a
+            href="mailto:info@bighouse.ru"
+            className="font-sans font-[200] text-gray-500 hover:text-white transition-colors"
+            style={{ fontSize: "clamp(14px, 1.302vw, 25px)" }}
+          >
             info@bighouse.ru
           </a>
           <a
             href="#contact"
-            className="text-sm px-5 py-1.5 border border-black text-black hover:bg-black hover:text-white transition-colors"
+            className="font-sans font-[200] px-5 py-1.5 border border-[#0F1F17] text-[#0F1F17] hover:bg-[#0F1F17] hover:text-white transition-colors rounded-[20px]"
+            style={{ fontSize: "clamp(14px, 1.302vw, 25px)" }}
           >
             Обратная связь
           </a>
@@ -31,7 +47,7 @@ export default function Header() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-1.5 text-black"
+          className="md:hidden p-1.5 text-[#0F1F17]"
           onClick={() => setOpen(!open)}
           aria-label="Меню"
         >
@@ -48,8 +64,8 @@ export default function Header() {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden border-t border-gray-200 bg-white px-6 py-4 flex flex-col gap-4">
-          <a href="mailto:info@bighouse.ru" className="text-sm text-gray-500">info@bighouse.ru</a>
-          <a href="#contact" onClick={() => setOpen(false)} className="text-sm border border-black px-4 py-2 text-center">
+          <a href="mailto:info@bighouse.ru" className="font-sans font-[200] text-gray-500 text-sm">info@bighouse.ru</a>
+          <a href="#contact" onClick={() => setOpen(false)} className="font-sans font-[200] text-sm border border-[#0F1F17] px-4 py-2 text-center rounded-[20px]">
             Обратная связь
           </a>
         </div>

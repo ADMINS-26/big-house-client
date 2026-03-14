@@ -1,15 +1,11 @@
+import SectionBlock from "./SectionBlock";
+
 export default function About() {
   return (
-    <section id="about" className="max-w-7xl mx-auto px-6 py-16">
-      {/* Section header */}
-      <div className="border-t border-black pt-3 flex items-baseline justify-between mb-10">
-        <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-black">О нас</h2>
-        <span className="text-xs text-gray-400 tracking-widest">01</span>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+    <SectionBlock id="about" title="О нас" number="01">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         {/* Text */}
-        <div className="space-y-5 text-sm text-gray-700 leading-relaxed">
+        <div className="space-y-5 font-sans font-[200] text-[#0F1F17]" style={{ fontSize: "clamp(13px, 1.146vw, 22px)", lineHeight: "clamp(20px, 2.083vw, 40px)" }}>
           <p>
             Большой дом стремится выполнять высококачественные, экономичные и
             своевременные проекты, которые постоянно превышают стандарты и
@@ -25,10 +21,20 @@ export default function About() {
 
         {/* Two photos */}
         <div className="grid grid-cols-2 gap-3 items-start">
-          <div className="bg-gray-200 rounded-xl aspect-[3/4]" />
-          <div className="bg-gray-300 rounded-xl aspect-square mt-6" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/about-1.png"
+            alt="Проект 1"
+            className="rounded-xl aspect-[3/4] w-full object-cover"
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/abour-2.png"
+            alt="Проект 2"
+            className="rounded-xl aspect-square w-full object-cover "
+          />
         </div>
       </div>
-    </section>
+    </SectionBlock>
   );
 }

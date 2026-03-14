@@ -1,44 +1,50 @@
+import SectionBlock from "./SectionBlock";
+
 const projects = [
-  { name: "Коттедж «Северный лес», 260 м²", price: "от 32.500.000 руб" },
-  { name: "Дом «Зелёная терраса», 180 м²", price: "от 12.000.000 руб" },
-  { name: "Коттедж «Северный лес», 220 м²", price: "от 18.900.000 руб" },
-  { name: "Коттедж «Тихая долина», 420 м²", price: "от 41.000.000 руб" },
+  { name: "Коттедж «Северный лес», 260м²", price: "от 32.500.000 руб", img: "/images/service-1.png" },
+  { name: "Дом «Зелёная терраса», 180м²", price: "от 12.000.000 руб", img: "/images/service-2.png" },
+  { name: "Коттедж «Северный лес», 220м²", price: "от 18.900.000 руб", img: "/images/service-3.png" },
+  { name: "Коттедж «Тихая долина», 420м²", price: "от 41.000.000 руб", img: "/images/service-4.png" },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="max-w-7xl mx-auto px-6 py-16">
-      {/* Section header */}
-      <div className="border-t border-black pt-3 flex items-baseline justify-between mb-3">
-        <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-black">
-          Мы выполним весь комплекс работ под ключ
-        </h2>
-        <span className="text-xs text-gray-400 tracking-widest">02</span>
-      </div>
-      <p className="text-xs text-gray-500 mb-10">
-        — от фундамента до внутренней отделки помещений
-      </p>
-
+    <SectionBlock
+      id="services"
+      title="Мы выполним весь комплекс работ под ключ"
+      number="02"
+      subtitle="— от фундамента до внутренней отделки помещений"
+    >
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {projects.map((project) => (
           <div
             key={project.name}
-            className="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group"
+            className="relative rounded-[30px] overflow-hidden aspect-[3/4] cursor-pointer group"
           >
-            {/* Image placeholder */}
-            <div className="absolute inset-0 bg-gray-300 group-hover:scale-105 transition-transform duration-500" />
-
-            {/* Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-
-            {/* Text */}
-            <div className="absolute bottom-0 left-0 right-0 p-4">
-              <p className="text-white text-xs font-medium leading-snug">{project.name}</p>
-              <p className="text-white/70 text-xs mt-1">цена: {project.price}</p>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={project.img}
+              alt={project.name}
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0F1F17]/70 via-[#0F1F17]/10 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 px-4 py-5 flex flex-col gap-2">
+              <p
+                className="font-display font-[200] text-white"
+                style={{ fontSize: "clamp(13px, 1.302vw, 25px)", lineHeight: "clamp(18px, 2.604vw, 50px)" }}
+              >
+                {project.name}
+              </p>
+              <span
+                className="font-display font-[200] text-white self-start px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30"
+                style={{ fontSize: "clamp(12px, 1.146vw, 22px)", lineHeight: "clamp(12px, 1.146vw, 22px)" }}
+              >
+                цена: {project.price}
+              </span>
             </div>
           </div>
         ))}
       </div>
-    </section>
+    </SectionBlock>
   );
 }

@@ -1,36 +1,44 @@
+/* eslint-disable @next/next/no-img-element */
+import SectionBlock from "./SectionBlock";
+import ArrowUp from "./icons/ArrowUp";
+
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200 mt-8">
-      <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-3 items-start gap-8">
-        {/* Logo */}
-        <div className="flex items-center gap-2">
-          <svg className="w-6 h-6 shrink-0" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 14L14 3L26 14V26H18V18H10V26H2V14Z" stroke="black" strokeWidth="1.5" fill="none" />
-          </svg>
-          <span className="text-xs font-semibold tracking-wide text-black">Большой дом</span>
-        </div>
-
-        {/* Contact info */}
-        <div className="text-xs text-gray-500 space-y-1 text-center">
-          <p>Email: info@bighouse.ru</p>
-          <p>Телефон: +7 (812) 111-22-33</p>
-          <p>Адрес: Россия, 191186, Санкт-Петербург,</p>
-          <p>ул. Большая Морская, 18</p>
-        </div>
-
-        {/* Scroll to top */}
-        <div className="flex justify-end">
-          <a
-            href="#"
-            aria-label="Наверх"
-            className="w-8 h-8 border border-gray-300 flex items-center justify-center hover:border-black transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 15l7-7 7 7" />
-            </svg>
+    <footer>
+      <SectionBlock id="footer">
+        <div className="grid grid-cols-2 items-center gap-8 py-8">
+          {/* Logo + name — left half */}
+          <a href="#" className="flex items-center gap-3">
+            <img src="/images/logo.svg" alt="Большой дом" style={{ height: "clamp(28px, 2.865vw, 55px)" }} />
+            <span
+              className="font-display font-[400] text-[#0F1F17]"
+              style={{ fontSize: "clamp(14px, 1.302vw, 25px)" }}
+            >
+              Большой дом
+            </span>
           </a>
+
+          {/* Contact info + scroll-to-top — right half (aligns with map above) */}
+          <div className="flex items-center justify-between gap-8">
+            <div
+              className="font-sans font-[200] text-[#0F1F17] space-y-1"
+              style={{
+                fontSize: "clamp(13px, 1.302vw, 25px)",
+                lineHeight: "clamp(20px, 2.083vw, 40px)",
+              }}
+            >
+              <p>Email: info@bighouse.ru</p>
+              <p>Телефон: +7 (812) 111-22-33</p>
+              <p>Адрес: Россия, 191186, Санкт-Петербург, ул. Большая Морская, 18</p>
+            </div>
+
+            {/* Scroll to top */}
+            <a href="#" aria-label="Наверх" className="shrink-0 hover:opacity-60 transition-opacity">
+              <ArrowUp />
+            </a>
+          </div>
         </div>
-      </div>
+      </SectionBlock>
     </footer>
   );
 }

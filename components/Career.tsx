@@ -1,3 +1,5 @@
+import SectionBlock from "./SectionBlock";
+
 const cards = [
   {
     num: "01",
@@ -26,49 +28,58 @@ const cards = [
   },
 ];
 
+function CareerCard({ card, className = "" }: { card: typeof cards[0]; className?: string }) {
+  return (
+    <div className={`border border-[#1B4332] rounded-[30px] px-5 py-5 flex flex-col justify-center gap-4 ${className}`}>
+      <div className="flex items-baseline justify-between gap-2">
+        <h3
+          className="font-sans font-[400] text-[#1B4332]"
+          style={{
+            fontSize: "clamp(15px, 1.563vw, 30px)",
+            lineHeight: "clamp(15px, 1.563vw, 30px)",
+          }}
+        >
+          {card.title}
+        </h3>
+        <span
+          className="font-sans font-[400] text-[#1B4332] shrink-0"
+          style={{
+            fontSize: "clamp(15px, 1.563vw, 30px)",
+            lineHeight: "clamp(15px, 1.563vw, 30px)",
+          }}
+        >
+          {card.num}
+        </span>
+      </div>
+      <p
+        className="font-sans font-[200] text-[#0F1F17]"
+        style={{
+          fontSize: "clamp(12px, 1.146vw, 22px)",
+          lineHeight: "clamp(18px, 1.563vw, 30px)",
+        }}
+      >
+        {card.text}
+      </p>
+    </div>
+  );
+}
+
 export default function Career() {
   return (
-    <section id="career" className="max-w-7xl mx-auto px-6 py-16">
-      {/* Section header */}
-      <div className="border-t border-black pt-3 flex items-baseline justify-between mb-10">
-        <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-black">Карьера</h2>
-        <span className="text-xs text-gray-400 tracking-widest">03</span>
-      </div>
-
-      {/* Cards layout: 2 stacked left + 3 in row right */}
-      <div className="flex flex-col md:flex-row gap-4">
-        {/* Left: 2 stacked */}
-        <div className="flex flex-col gap-4 md:w-2/5">
+    <SectionBlock id="career" title="Карьера" number="03">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
+        {/* Column 1: cards 1+2 stacked (only meaningful at lg+) */}
+        <div className="flex flex-col gap-4">
           {cards.slice(0, 2).map((card) => (
-            <div
-              key={card.num}
-              className="border border-gray-200 rounded-2xl p-5 flex flex-col gap-3 flex-1"
-            >
-              <div className="flex items-start justify-between gap-2">
-                <h3 className="text-sm font-semibold text-black leading-snug">{card.title}</h3>
-                <span className="text-xs text-gray-400 shrink-0">{card.num}</span>
-              </div>
-              <p className="text-xs text-gray-600 leading-relaxed">{card.text}</p>
-            </div>
+            <CareerCard key={card.num} card={card} className="flex-1" />
           ))}
         </div>
 
-        {/* Right: 3 in row */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:w-3/5">
-          {cards.slice(2).map((card) => (
-            <div
-              key={card.num}
-              className="border border-gray-200 rounded-2xl p-5 flex flex-col gap-3"
-            >
-              <div className="flex items-start justify-between gap-2">
-                <h3 className="text-sm font-semibold text-black leading-snug">{card.title}</h3>
-                <span className="text-xs text-gray-400 shrink-0">{card.num}</span>
-              </div>
-              <p className="text-xs text-gray-600 leading-relaxed">{card.text}</p>
-            </div>
-          ))}
-        </div>
+        {/* Cards 3-5 */}
+        {cards.slice(2).map((card) => (
+          <CareerCard key={card.num} card={card} />
+        ))}
       </div>
-    </section>
+    </SectionBlock>
   );
 }
