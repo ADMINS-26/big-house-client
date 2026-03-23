@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import FadeIn from "./FadeIn";
 
 interface SectionBlockProps {
   id?: string;
@@ -11,7 +12,7 @@ interface SectionBlockProps {
 export default function SectionBlock({ id, title, number, subtitle, children }: SectionBlockProps) {
   return (
     <section id={id} className="site-container py-16">
-      <div className="mb-10">
+      <FadeIn className="mb-10">
 
       <div className="border-b border-[#0F1F17] pt-3 flex items-baseline justify-between pb-5 mb-2.5 ">
         <h2
@@ -51,7 +52,7 @@ export default function SectionBlock({ id, title, number, subtitle, children }: 
         </div>
       )}
 
-      </div>
+      </FadeIn>
       {children}
     </section>
   );

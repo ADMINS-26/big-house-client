@@ -1,4 +1,5 @@
 import SectionBlock from "./SectionBlock";
+import FadeIn from "./FadeIn";
 
 const cards = [
   {
@@ -68,16 +69,15 @@ export default function Career() {
   return (
     <SectionBlock id="career" title="Карьера" number="03">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
-        {/* Column 1: cards 1+2 stacked (only meaningful at lg+) */}
-        <div className="flex flex-col gap-4">
+        <FadeIn className="flex flex-col gap-4">
           {cards.slice(0, 2).map((card) => (
             <CareerCard key={card.num} card={card} className="flex-1" />
           ))}
-        </div>
-
-        {/* Cards 3-5 */}
-        {cards.slice(2).map((card) => (
-          <CareerCard key={card.num} card={card} />
+        </FadeIn>
+        {cards.slice(2).map((card, i) => (
+          <FadeIn key={card.num} delay={(i + 1) * 100}>
+            <CareerCard card={card} className="h-full" />
+          </FadeIn>
         ))}
       </div>
     </SectionBlock>

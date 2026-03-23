@@ -4,7 +4,6 @@ export default function Contacts() {
   return (
     <SectionBlock id="contact" title="Контакты" number="04">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        {/* Contact info */}
         <div className="space-y-3 font-sans font-[200] text-[#0F1F17]" style={{ fontSize: "clamp(13px, 1.146vw, 22px)", lineHeight: "clamp(20px, 2.083vw, 40px)" }}>
           <p>
             <span className="font-[400]">Email:</span>{" "}
@@ -24,7 +23,6 @@ export default function Contacts() {
           </p>
         </div>
 
-        {/* Google Maps embed */}
         <div className="rounded-xl overflow-hidden aspect-[4/3] w-full">
           <iframe
             src="https://maps.google.com/maps?q=59.9351,30.3147&hl=ru&z=14&output=embed"
