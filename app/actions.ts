@@ -1,5 +1,7 @@
 "use server";
 
+import { supabase } from "@/lib/supabase";
+
 export type FormState = {
   success?: boolean;
   error?: string;
@@ -12,8 +14,6 @@ export async function submitContact(
   const name = formData.get("name")?.toString().trim();
   const lastName = formData.get("lastName")?.toString().trim();
   const phone = formData.get("phone")?.toString().trim();
-  const email = formData.get("email")?.toString().trim();
-  const message = formData.get("message")?.toString().trim();
 
   if (!name || name.length < 2) {
     return { error: "Имя должно содержать не менее 2 символов." };
@@ -28,8 +28,18 @@ export async function submitContact(
     return { error: "Введите корректный российский номер телефона." };
   }
 
-  // Здесь можно добавить отправку на email / webhook / CRM
-  console.log("Новая заявка:", { name, lastName, phone, email, message });
+  const { error } = await supabase.from("contacts").insert({
+    name,
+    last_name: lastName,
+    phone: normalized,
+  });
+
+  if (error) {
+    console.error("Supabase error code:", error.code);
+    console.error("Supabase error message:", error.message);
+    console.error("Supabase error details:", error.details);
+    return { error: "Не удалось отправить заявку. Попробуйте позже." };
+  }
 
   return { success: true };
 }

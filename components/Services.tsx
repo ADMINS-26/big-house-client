@@ -1,14 +1,22 @@
 import SectionBlock from "./SectionBlock";
 import FadeIn from "./FadeIn";
+import { supabase } from "@/lib/supabase";
 
-const projects = [
-  { name: "Коттедж «Северный лес», 260м²", price: "от 32.500.000 руб", img: "/images/service-1.png" },
-  { name: "Дом «Зелёная терраса», 180м²", price: "от 12.000.000 руб", img: "/images/service-2.png" },
-  { name: "Коттедж «Северный лес», 220м²", price: "от 18.900.000 руб", img: "/images/service-3.png" },
-  { name: "Коттедж «Тихая долина», 420м²", price: "от 41.000.000 руб", img: "/images/service-4.png" },
-];
+type House = {
+  name: string;
+  square: number;
+  price: string;
+  photo: string;
+};
 
-export default function Services() {
+export default async function Services() {
+  const { data } = await supabase
+    .from("houses")
+    .select("name, square, price, photo")
+    .limit(4);
+
+  const projects: House[] = data ?? [];
+
   return (
     <SectionBlock
       id="services"
@@ -18,13 +26,13 @@ export default function Services() {
     >
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {projects.map((project, i) => (
-          <FadeIn key={project.name} delay={i * 100}>
+          <FadeIn key={i} delay={i * 100}>
           <div
             className="relative rounded-[30px] overflow-hidden aspect-[3/4] cursor-pointer group"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={project.img}
+              src={project.photo}
               alt={project.name}
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -35,7 +43,7 @@ export default function Services() {
                 className="font-display font-[200] text-white"
                 style={{ fontSize: "clamp(13px, 1.302vw, 25px)", lineHeight: "clamp(18px, 2.604vw, 50px)" }}
               >
-                {project.name}
+                {project.name}, {project.square}м²
               </p>
               <span
                 className="font-display font-[200] text-white self-start px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30"
