@@ -24,6 +24,11 @@ body {
   font-family: var(--font-nunito), system-ui, sans-serif;
 }
 
+img {
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
 @keyframes slideDown {
   from {
     opacity: 0;

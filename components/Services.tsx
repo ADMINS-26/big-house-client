@@ -49,7 +49,7 @@ export default async function Services() {
                 className="font-display font-[200] text-white self-start px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30"
                 style={{ fontSize: "clamp(12px, 1.146vw, 22px)", lineHeight: "clamp(12px, 1.146vw, 22px)" }}
               >
-                цена: {project.price}
+                цена: {Number(project.price).toLocaleString("ru-RU").replace(/\s/g, ".")} руб.
               </span>
             </div>
           </div>
