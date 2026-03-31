@@ -93,51 +93,51 @@ export default function JoinUs() {
           )}
 
           <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-start flex-wrap">
-            <div className="flex flex-col">
+            <div className="flex flex-col w-full sm:w-auto">
               <input
                 name="name"
                 type="text"
                 placeholder="Имя"
-                className={`border px-4 py-2.5 outline-none transition-colors placeholder:text-gray-400 rounded-[20px] ${fieldErrors.name ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#0F1F17]"}`}
-                style={{ fontSize: "clamp(14px, 1.302vw, 25px)", width: "clamp(140px, 14vw, 270px)" }}
+                className={`border px-4 py-2.5 outline-none transition-colors placeholder:text-gray-400 rounded-[20px] w-full sm:w-[170px] ${fieldErrors.name ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#0F1F17]"}`}
+                style={{ fontSize: "clamp(14px, 1.302vw, 25px)" }}
               />
-              <div className="min-h-[18px] mt-1">
-                {fieldErrors.name && <p className="text-xs text-red-600 pl-2 truncate" style={{ maxWidth: "clamp(140px, 14vw, 270px)" }}>{fieldErrors.name}</p>}
+              <div className="min-h-[18px] mt-1 w-full sm:w-[170px]">
+                {fieldErrors.name && <p className="text-xs text-red-600 pl-2">{fieldErrors.name}</p>}
               </div>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col w-full sm:w-auto">
               <input
                 name="lastName"
                 type="text"
                 placeholder="Фамилия"
-                className={`border px-4 py-2.5 outline-none transition-colors placeholder:text-gray-400 rounded-[20px] ${fieldErrors.lastName ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#0F1F17]"}`}
-                style={{ fontSize: "clamp(14px, 1.302vw, 25px)", width: "clamp(140px, 14vw, 270px)" }}
+                className={`border px-4 py-2.5 outline-none transition-colors placeholder:text-gray-400 rounded-[20px] w-full sm:w-[170px] ${fieldErrors.lastName ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#0F1F17]"}`}
+                style={{ fontSize: "clamp(14px, 1.302vw, 25px)" }}
               />
-              <div className="min-h-[18px] mt-1">
-                {fieldErrors.lastName && <p className="text-xs text-red-600 pl-2 truncate" style={{ maxWidth: "clamp(140px, 14vw, 270px)" }}>{fieldErrors.lastName}</p>}
+              <div className="min-h-[18px] mt-1 w-full sm:w-[170px]">
+                {fieldErrors.lastName && <p className="text-xs text-red-600 pl-2">{fieldErrors.lastName}</p>}
               </div>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col w-full sm:w-auto">
               <input
                 name="phone"
                 type="tel"
                 value={formatPhone(phone)}
                 onChange={handlePhoneInput}
                 placeholder="+7 (___) ___-__-__"
-                className={`border px-4 py-2.5 outline-none transition-colors placeholder:text-gray-400 rounded-[20px] ${fieldErrors.phone ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#0F1F17]"}`}
-                style={{ fontSize: "clamp(14px, 1.302vw, 25px)", width: "clamp(140px, 14vw, 270px)" }}
+                className={`border px-4 py-2.5 outline-none transition-colors placeholder:text-gray-400 rounded-[20px] w-full sm:w-[170px] ${fieldErrors.phone ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#0F1F17]"}`}
+                style={{ fontSize: "clamp(14px, 1.302vw, 25px)" }}
               />
-              <div className="min-h-[18px] mt-1">
-                {fieldErrors.phone && <p className="text-xs text-red-600 pl-2 truncate" style={{ maxWidth: "clamp(140px, 14vw, 270px)" }}>{fieldErrors.phone}</p>}
+              <div className="min-h-[18px] mt-1 w-full sm:w-[170px]">
+                {fieldErrors.phone && <p className="text-xs text-red-600 pl-2">{fieldErrors.phone}</p>}
               </div>
             </div>
 
             <button
               type="submit"
               disabled={pending}
-              className="shrink-0 px-6 py-2.5 border border-[#0F1F17] text-[#0F1F17] hover:bg-[#0F1F17] hover:text-white disabled:opacity-50 transition-colors whitespace-nowrap rounded-[20px]"
+              className="w-full sm:w-auto shrink-0 px-6 py-2.5 border border-[#0F1F17] text-[#0F1F17] hover:bg-[#0F1F17] hover:text-white disabled:opacity-50 transition-colors whitespace-nowrap rounded-[20px]"
               style={{ fontSize: "clamp(14px, 1.302vw, 25px)" }}
             >
               {pending ? "Отправка..." : "Отправить заявку"}
