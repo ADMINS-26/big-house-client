@@ -92,9 +92,8 @@ export default function JoinUs() {
             </div>
           )}
 
-          <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-end flex-wrap">
-            {/* Имя */}
-            <div className="flex flex-col gap-1">
+          <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-start flex-wrap">
+            <div className="flex flex-col">
               <input
                 name="name"
                 type="text"
@@ -102,13 +101,12 @@ export default function JoinUs() {
                 className={`border px-4 py-2.5 outline-none transition-colors placeholder:text-gray-400 rounded-[20px] ${fieldErrors.name ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#0F1F17]"}`}
                 style={{ fontSize: "clamp(14px, 1.302vw, 25px)", width: "clamp(140px, 14vw, 270px)" }}
               />
-              {fieldErrors.name && (
-                <p className="text-xs text-red-600 pl-2">{fieldErrors.name}</p>
-              )}
+              <div className="min-h-[18px] mt-1">
+                {fieldErrors.name && <p className="text-xs text-red-600 pl-2 truncate" style={{ maxWidth: "clamp(140px, 14vw, 270px)" }}>{fieldErrors.name}</p>}
+              </div>
             </div>
 
-            {/* Фамилия */}
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col">
               <input
                 name="lastName"
                 type="text"
@@ -116,13 +114,12 @@ export default function JoinUs() {
                 className={`border px-4 py-2.5 outline-none transition-colors placeholder:text-gray-400 rounded-[20px] ${fieldErrors.lastName ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#0F1F17]"}`}
                 style={{ fontSize: "clamp(14px, 1.302vw, 25px)", width: "clamp(140px, 14vw, 270px)" }}
               />
-              {fieldErrors.lastName && (
-                <p className="text-xs text-red-600 pl-2">{fieldErrors.lastName}</p>
-              )}
+              <div className="min-h-[18px] mt-1">
+                {fieldErrors.lastName && <p className="text-xs text-red-600 pl-2 truncate" style={{ maxWidth: "clamp(140px, 14vw, 270px)" }}>{fieldErrors.lastName}</p>}
+              </div>
             </div>
 
-            {/* Телефон */}
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col">
               <input
                 name="phone"
                 type="tel"
@@ -132,9 +129,9 @@ export default function JoinUs() {
                 className={`border px-4 py-2.5 outline-none transition-colors placeholder:text-gray-400 rounded-[20px] ${fieldErrors.phone ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#0F1F17]"}`}
                 style={{ fontSize: "clamp(14px, 1.302vw, 25px)", width: "clamp(140px, 14vw, 270px)" }}
               />
-              {fieldErrors.phone && (
-                <p className="text-xs text-red-600 pl-2">{fieldErrors.phone}</p>
-              )}
+              <div className="min-h-[18px] mt-1">
+                {fieldErrors.phone && <p className="text-xs text-red-600 pl-2 truncate" style={{ maxWidth: "clamp(140px, 14vw, 270px)" }}>{fieldErrors.phone}</p>}
+              </div>
             </div>
 
             <button

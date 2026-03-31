@@ -12,7 +12,6 @@ export default function Header() {
         className="site-container flex items-center justify-between"
         style={{ height: "clamp(56px, 8.073vw, 155px)" }}
       >
-        {/* Logo + name */}
         <a href="#" className="flex items-center gap-3 shrink-0">
           <img
             src="/images/logo.svg"
@@ -27,7 +26,6 @@ export default function Header() {
           </span>
         </a>
 
-        {/* Desktop right */}
         <div className="hidden md:flex items-center gap-6">
           <a
             href="mailto:info@bighouse.ru"
@@ -45,7 +43,6 @@ export default function Header() {
           </a>
         </div>
 
-        {/* Mobile hamburger */}
         <button
           className="md:hidden p-1.5 text-[#0F1F17]"
           onClick={() => setOpen(!open)}
@@ -77,7 +74,6 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div className="animate-slide-down md:hidden border-t border-gray-200 bg-white px-6 py-4 flex flex-col gap-4">
           <a href="mailto:info@bighouse.ru" className="font-sans font-[200] text-gray-500 text-sm">info@bighouse.ru</a>

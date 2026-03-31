@@ -7,7 +7,6 @@ export default function Footer() {
     <footer>
       <SectionBlock id="footer">
         <div className="grid grid-cols-2 items-center gap-8 py-8">
-          {/* Logo + name — left half */}
           <a href="#" className="flex items-center gap-3">
             <img src="/images/logo.svg" alt="Большой дом" style={{ height: "clamp(28px, 2.865vw, 55px)" }} />
             <span
@@ -18,7 +17,6 @@ export default function Footer() {
             </span>
           </a>
 
-          {/* Contact info + scroll-to-top — right half (aligns with map above) */}
           <div className="flex items-center justify-between gap-8">
             <div
               className="font-sans font-[200] text-[#0F1F17] space-y-1"
@@ -32,7 +30,6 @@ export default function Footer() {
               <p>Адрес: Россия, 191186, Санкт-Петербург, ул. Большая Морская, 18</p>
             </div>
 
-            {/* Scroll to top */}
             <a href="#" aria-label="Наверх" className="shrink-0 hover:opacity-60 transition-opacity">
               <ArrowUp />
             </a>
