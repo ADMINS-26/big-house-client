@@ -98,10 +98,10 @@ export default function JoinUs() {
                 name="name"
                 type="text"
                 placeholder="Имя"
-                className={`border px-4 py-2.5 outline-none transition-colors placeholder:text-gray-400 rounded-[20px] w-full sm:w-[170px] ${fieldErrors.name ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#0F1F17]"}`}
+                className={`border px-4 py-2.5 outline-none transition-colors placeholder:text-gray-400 rounded-[20px] w-full sm:w-[250px] ${fieldErrors.name ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#0F1F17]"}`}
                 style={{ fontSize: "clamp(14px, 1.302vw, 25px)" }}
               />
-              <div className="min-h-[18px] mt-1 w-full sm:w-[170px]">
+              <div className="min-h-[18px] mt-1 w-full sm:w-[250px]">
                 {fieldErrors.name && <p className="text-xs text-red-600 pl-2">{fieldErrors.name}</p>}
               </div>
             </div>
@@ -111,10 +111,10 @@ export default function JoinUs() {
                 name="lastName"
                 type="text"
                 placeholder="Фамилия"
-                className={`border px-4 py-2.5 outline-none transition-colors placeholder:text-gray-400 rounded-[20px] w-full sm:w-[170px] ${fieldErrors.lastName ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#0F1F17]"}`}
+                className={`border px-4 py-2.5 outline-none transition-colors placeholder:text-gray-400 rounded-[20px] w-full sm:w-[250px] ${fieldErrors.lastName ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#0F1F17]"}`}
                 style={{ fontSize: "clamp(14px, 1.302vw, 25px)" }}
               />
-              <div className="min-h-[18px] mt-1 w-full sm:w-[170px]">
+              <div className="min-h-[18px] mt-1 w-full sm:w-[250px]">
                 {fieldErrors.lastName && <p className="text-xs text-red-600 pl-2">{fieldErrors.lastName}</p>}
               </div>
             </div>
@@ -126,10 +126,10 @@ export default function JoinUs() {
                 value={formatPhone(phone)}
                 onChange={handlePhoneInput}
                 placeholder="+7 (___) ___-__-__"
-                className={`border px-4 py-2.5 outline-none transition-colors placeholder:text-gray-400 rounded-[20px] w-full sm:w-[170px] ${fieldErrors.phone ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#0F1F17]"}`}
+                className={`border px-4 py-2.5 outline-none transition-colors placeholder:text-gray-400 rounded-[20px] w-full sm:w-[250px] ${fieldErrors.phone ? "border-red-400 focus:border-red-500" : "border-gray-300 focus:border-[#0F1F17]"}`}
                 style={{ fontSize: "clamp(14px, 1.302vw, 25px)" }}
               />
-              <div className="min-h-[18px] mt-1 w-full sm:w-[170px]">
+              <div className="min-h-[18px] mt-1 w-full sm:w-[250px]">
                 {fieldErrors.phone && <p className="text-xs text-red-600 pl-2">{fieldErrors.phone}</p>}
               </div>
             </div>
