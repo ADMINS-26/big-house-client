@@ -9,13 +9,29 @@ type House = {
   photo: string;
 };
 
-export default async function Services() {
-  const { data } = await supabase
-    .from("houses")
-    .select("name, square, price, photo")
-    .limit(4);
+function FallbackMessage() {
+  return (
+    <p className="text-center py-10 font-display font-[200]">
+      Этот блок на ремонте, но скоро восстановится
+    </p>
+  );
+}
 
-  const projects: House[] = data ?? [];
+export default async function Services() {
+  let projects: House[] = [];
+  let hasError = false;
+
+  try {
+    const { data, error } = await supabase
+      .from("houses")
+      .select("name, square, price, photo")
+      .limit(4);
+
+    if (error) throw error;
+    projects = data ?? [];
+  } catch {
+    hasError = true;
+  }
 
   return (
     <SectionBlock
@@ -24,6 +40,9 @@ export default async function Services() {
       number="02"
       subtitle="— от фундамента до внутренней отделки помещений"
     >
+      {hasError || projects.length === 0 ? (
+        <FallbackMessage />
+      ) : (
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {projects.map((project, i) => (
           <FadeIn key={i} delay={i * 100}>
@@ -56,6 +75,7 @@ export default async function Services() {
           </FadeIn>
         ))}
       </div>
+      )}
     </SectionBlock>
   );
 }
